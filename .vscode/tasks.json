@@ -5,11 +5,12 @@
             "label": "C/C++: g++.exe build active file",
             "command": "C:\\MinGW\\bin\\g++.exe",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            "-fdiagnostics-color=always",
+            "-g",
+            "bst.cpp",
+            "mainbst.cpp",
+            "-o",
+            "${fileDirname}\\bst.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
