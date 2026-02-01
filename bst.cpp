@@ -1,4 +1,7 @@
-#include "./bst.h"
+#include "bst.h"
+
+static Node* findMin(Node* root);
+static Node* deleteRec(Node* root, int data);
 
 /* Create new node */
 Node* newNode(int key)
@@ -40,7 +43,7 @@ void insert(Node** headref, int data)
         parent->left = newNode(data);
 }
 
-/* Search in BST */
+/* Search */
 bool find(Node** headref, int data)
 {
     if (*headref == nullptr)
@@ -61,14 +64,15 @@ bool find(Node** headref, int data)
 }
 
 
-Node* findMin(Node* root)
+static Node* findMin(Node* root)
 {
     while (root != nullptr && root->left != nullptr)
         root = root->left;
     return root;
 }
 
-Node* deleteRec(Node* root, int data)
+
+static Node* deleteRec(Node* root, int data)
 {
     if (root == nullptr)
         return root;
@@ -79,13 +83,13 @@ Node* deleteRec(Node* root, int data)
         root->right = deleteRec(root->right, data);
     else
     {
-        //no child
+        // no child
         if (root->left == nullptr && root->right == nullptr)
         {
             delete root;
             return nullptr;
         }
-        //one child
+        // one child
         else if (root->left == nullptr)
         {
             Node* temp = root->right;
@@ -98,7 +102,7 @@ Node* deleteRec(Node* root, int data)
             delete root;
             return temp;
         }
-        //two children
+        // two children
         else
         {
             Node* temp = findMin(root->right);
@@ -109,7 +113,7 @@ Node* deleteRec(Node* root, int data)
     return root;
 }
 
-/* Delete */
+/* Delete wrapper */
 void deleteNode(Node** headref, int data)
 {
     *headref = deleteRec(*headref, data);
