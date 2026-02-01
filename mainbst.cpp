@@ -2,7 +2,7 @@
 
 int main()
 {
-    Node* head = nullptr;
+    Node* head = NULL;
 
     insert(&head, 50);
     insert(&head, 30);
@@ -16,16 +16,16 @@ int main()
     printBST(head);
     cout << endl;
 
-    cout << "Find 40: " << find(&head, 40) << endl;
-    cout << "Find 100: " << find(&head, 100) << endl;
-
-    deleteNode(&head, 20);   
-    deleteNode(&head, 30);   
-    deleteNode(&head, 50); 
-
-    cout << "BST after deletions: ";
-    printBST(head);
+    cout << "BST (preorder): ";
+    printPreorder(head);
     cout << endl;
+
+    cout << "BST (postorder): ";
+    printPostorder(head);
+    cout << endl;
+
+    cout << "Height of tree: " << height(head) << endl;
+    cout << "Is balanced? " << (isBalanced(head) ? "Yes" : "No") << endl;
 
     return 0;
 }

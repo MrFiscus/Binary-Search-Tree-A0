@@ -1,6 +1,5 @@
 #include "bst.h"
 
-/* Forward declarations (local helpers) */
 static Node* findMin(Node* root);
 static Node* deleteRec(Node* root, int data);
 
@@ -30,7 +29,6 @@ void insert(Node** headref, int data)
     {
         parent = travptr;
 
-        // Ignore duplicates
         if (data == travptr->data)
             return;
 
@@ -65,7 +63,6 @@ bool find(Node** headref, int data)
     return false;
 }
 
-/* Find minimum node */
 static Node* findMin(Node* root)
 {
     while (root != NULL && root->left != NULL)
@@ -73,7 +70,6 @@ static Node* findMin(Node* root)
     return root;
 }
 
-/* Recursive delete helper */
 static Node* deleteRec(Node* root, int data)
 {
     if (root == NULL)
@@ -85,13 +81,13 @@ static Node* deleteRec(Node* root, int data)
         root->right = deleteRec(root->right, data);
     else
     {
-        // Case 1: no child
+        // no child
         if (root->left == NULL && root->right == NULL)
         {
             delete root;
             return NULL;
         }
-        // Case 2: one child
+        // one child
         else if (root->left == NULL)
         {
             Node* temp = root->right;
@@ -104,7 +100,7 @@ static Node* deleteRec(Node* root, int data)
             delete root;
             return temp;
         }
-        // Case 3: two children
+        // two children
         else
         {
             Node* temp = findMin(root->right);
@@ -121,7 +117,7 @@ void deleteNode(Node** headref, int data)
     *headref = deleteRec(*headref, data);
 }
 
-/* Print BST (inorder) */
+/* Print BST */
 void printBST(Node* root)
 {
     if (root == NULL)
@@ -130,4 +126,52 @@ void printBST(Node* root)
     printBST(root->left);
     cout << root->data << " ";
     printBST(root->right);
+}
+
+/* Preorder traversal */
+void printPreorder(Node* root)
+{
+    if (root == NULL)
+        return;
+
+    cout << root->data << " ";
+    printPreorder(root->left);
+    printPreorder(root->right);
+}
+
+void printPostorder(Node* root)
+{
+    if (root == NULL)
+        return;
+
+    printPostorder(root->left);
+    printPostorder(root->right);
+    cout << root->data << " ";
+}
+
+/* Height*/
+int height(Node* root)
+{
+    if (root == NULL)
+        return -1; 
+
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+
+    return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
+}
+
+/* checking tree is balanced */
+bool isBalanced(Node* root)
+{
+    if (root == NULL)
+        return true;
+
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+
+    if (abs(leftHeight - rightHeight) > 1)
+        return false;
+
+    return isBalanced(root->left) && isBalanced(root->right);
 }
