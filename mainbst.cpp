@@ -4,13 +4,13 @@ int main()
 {
     Node* head = NULL;
 
-    insert(&head, 50);
-    insert(&head, 30);
-    insert(&head, 70);
-    insert(&head, 20);
-    insert(&head, 40);
-    insert(&head, 60);
-    insert(&head, 80);
+    insert(&head, 4);
+    insert(&head, 2);
+    insert(&head, 6);
+    insert(&head, 1);
+    insert(&head, 3);
+    insert(&head, 5);
+    insert(&head, 7);
 
     cout << "BST (inorder): ";
     printBST(head);
