@@ -175,3 +175,23 @@ bool isBalanced(Node* root)
 
     return isBalanced(root->left) && isBalanced(root->right);
 }
+
+/* total nodes */
+int countNodes(Node* root)
+{
+    if (root == NULL)
+        return 0;
+
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+
+/* worst-case BST */
+bool isWorstCase(Node* root)
+{
+    if (root == NULL)
+        return false;
+
+    int totalNodes = countNodes(root);
+    int h = height(root);
+    return (h == totalNodes - 1);
+}

@@ -24,4 +24,8 @@ void printPostorder(Node* root);
 int height(Node* root);
 bool isBalanced(Node* root);
 
+// Task 3
+int countNodes(Node* root);
+bool isWorstCase(Node* root); 
+
 #endif
