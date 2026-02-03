@@ -1,8 +1,6 @@
-#ifndef BST_H
-#define BST_H
-
 #include <iostream>
 #include "customErrorClass.h"
+
 using namespace std;
 
 struct Node
@@ -29,4 +27,3 @@ bool isBalanced(Node* root);
 int countNodes(Node* root);
 bool isWorstCase(Node* root); 
 
-#endif

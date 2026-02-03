@@ -17,8 +17,8 @@ class MyException : public exception {
         MyException(void);
         MyException(const char*);
         MyException(const string&);
-        virtual const string what(){
-            return this->errString;
+        const char* what() const noexcept override {
+            return errString.c_str();
         }
     private:
         string errString;

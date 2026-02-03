@@ -87,7 +87,7 @@ try
  cout << endl;
  }
 
- catch (MyException& e)
+ catch (MyException &e)
     {
         cerr << e.what() << endl;
     }
