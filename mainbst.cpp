@@ -3,7 +3,6 @@
 int main()
 {
     Node* head = NULL;
-    Node* worst = NULL;
 
     insert(&head, 4);
     insert(&head, 2);
@@ -27,7 +26,7 @@ int main()
 
     cout << "Height of tree: " << height(head) << endl;
     cout << "Is balanced? " << (isBalanced(head) ? "Yes" : "No") << endl;
-    cout << "Is worst-case BST? " << (isWorstCase(worst) ? "Yes" : "No") << endl;
+    cout << "Is worstcase? " << (isWorstCase(head) ? "Yes" : "No") << endl;
 
     
     return 0;
