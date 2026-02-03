@@ -11,6 +11,12 @@ int main()
     insert(&head, 3);
     insert(&head, 5);
     insert(&head, 7);
+    insert(&head, 10);
+
+    cout << "Find 3: " << (find(&head, 4) ? "Found" : "Not Found") << endl;
+    cout << "Find 10: " << (find(&head, 21) ? "Found" : "Not Found") << endl;
+
+    deleteNode(&head, 10);
 
     cout << "BST (inorder): ";
     printBST(head);
