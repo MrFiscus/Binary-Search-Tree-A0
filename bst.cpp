@@ -27,8 +27,14 @@ void insert(Node** headref, int data)
 
     while (travptr != NULL)
     {
-        parent = travptr;
+        if (travptr->data == data)
+        {
+            cout << "Duplicate value\n";
+            return;
+        }
 
+        parent = travptr;
+        
         if (data == travptr->data)
             return;
 
@@ -47,7 +53,10 @@ void insert(Node** headref, int data)
 bool find(Node** headref, int data)
 {
     if (*headref == NULL)
+     {
+        cout << "Tree is empty\n";
         return false;
+    }
 
     Node* travptr = *headref;
 
