@@ -2,38 +2,88 @@
 
 int main()
 {
-    Node* head = NULL;
+ Node* head = NULL;
 
-    insert(&head, 4);
-    insert(&head, 2);
-    insert(&head, 6);
-    insert(&head, 1);
-    insert(&head, 3);
-    insert(&head, 5);
-    insert(&head, 7);
-    insert(&head, 10);
+ insert(&head, 4);
+ insert(&head, 2);
+ insert(&head, 6);
+ insert(&head, 1);
+ insert(&head, 3);
+ insert(&head, 5);
+ insert(&head, 7);
+ insert(&head, 10);
 
-    cout << "Find 3: " << (find(&head, 4) ? "Found" : "Not Found") << endl;
-    cout << "Find 10: " << (find(&head, 21) ? "Found" : "Not Found") << endl;
+ bool result;
 
-    deleteNode(&head, 10);
+ result = find(&head, 4);
 
-    cout << "BST (inorder): ";
-    printBST(head);
-    cout << endl;
+ cout << "Find 4: ";
+ if (result == true)
+ {
+  cout << "Found";
+ }
+ else
+ {
+  cout << "Not Found";
+ }
+ cout << endl;
 
-    cout << "BST (preorder): ";
-    printPreorder(head);
-    cout << endl;
+ result = find(&head, 21);
 
-    cout << "BST (postorder): ";
-    printPostorder(head);
-    cout << endl;
+ cout << "Find 21: ";
+ if (result == true)
+ {
+  cout << "Found";
+ }
+ else
+ {
+  cout << "Not Found";
+ }
+ cout << endl;
 
-    cout << "Height of tree: " << height(head) << endl;
-    cout << "Is balanced? " << (isBalanced(head) ? "Yes" : "No") << endl;
-    cout << "Is worstcase? " << (isWorstCase(head) ? "Yes" : "No") << endl;
 
-    
-    return 0;
+ deleteNode(&head, 10);
+
+ cout << "BST (inorder): ";
+ printBST(head);
+ cout << endl;
+
+ cout << "BST (preorder): ";
+ printPreorder(head);
+ cout << endl;
+
+ cout << "BST (postorder): ";
+ printPostorder(head);
+ cout << endl;
+
+ int h = height(head);
+ cout << "Height of tree: " << h << endl;
+
+ bool balanced = isBalanced(head);
+ cout << "Is balanced? ";
+ if (balanced == true)
+ {
+  cout << "Yes";
+ }
+ else
+ {
+ cout << "No";
+ }
+ cout << endl;
+
+ bool worst = isWorstCase(head);
+ cout << "Is worstcase? ";
+ if (worst == true)
+ {
+  cout << "Yes";
+ }
+ else
+ {
+  cout << "No";
+ }
+ cout << endl;
+
+
+ 
+ return 0;
 }

@@ -6,9 +6,9 @@ using namespace std;
 
 struct Node
 {
-    int data;
-    Node* left;
-    Node* right;
+ int data;
+ Node* left;
+ Node* right;
 };
 
 // Task 1
