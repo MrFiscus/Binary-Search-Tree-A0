@@ -2,6 +2,7 @@
 #define BST_H
 
 #include <iostream>
+#include "customErrorClass.h"
 using namespace std;
 
 struct Node

@@ -1,4 +1,5 @@
 #include "bst.h"
+#include "customErrorClass.h"
 
 static Node* findMin(Node* root);
 static Node* deleteRec(Node* root, int data);
@@ -19,7 +20,7 @@ void insert(Node** headref, int data)
  if (*headref == NULL)
  {
 *headref = newNode(data);
-return;
+    return;
  }
 
  Node* travptr = *headref;
@@ -28,10 +29,9 @@ return;
  while (travptr != NULL)
  {
  if (travptr->data == data)
- {
- cout << "Duplicate value\n";
- return;
- }
+  {
+        throw MyException("Duplicate value");
+    }
 
  parent = travptr;
 
@@ -67,7 +67,7 @@ while (travptr != NULL)
 {
  if (travptr->data == data)
  {
-return true;
+    return true;
  }
 
  if (data > travptr->data)
@@ -80,7 +80,7 @@ travptr = travptr->left;
  }
 }
 
-return false;
+    return false;
 
 }
 
@@ -96,7 +96,7 @@ break;
  root = root->left;
  }
 
- return root;
+    return root;
 
 }
 
@@ -106,7 +106,7 @@ static Node* deleteRec(Node* root, int data)
 {
  if (root == NULL)
  {
- return root;
+    throw MyException("Value not found");
  }
 
  if (data < root->data)
@@ -124,35 +124,40 @@ root->right = deleteRec(root->right, data);
 if (root->left == NULL && root->right == NULL)
 {
  delete root;
- return NULL;
+    return NULL;
 }
 
 if (root->left == NULL)
 {
  Node* temp = root->right;
  delete root;
- return temp;
+    return temp;
 }
 
 if (root->right == NULL)
 {
  Node* temp = root->left;
  delete root;
- return temp;
+    return temp;
 }
 
 Node* temp = findMin(root->right);
 root->data = temp->data;
 root->right = deleteRec(root->right, temp->data);
- }
+}
 }
 
-return root;
+    return root;
 
 }
 
 void deleteNode(Node** headref, int data)
 {
+     if (*headref == NULL)
+    {
+        throw MyException("Tree is empty. Cannot delete.");
+    }
+
  *headref = deleteRec(*headref, data);
 }
 
@@ -160,7 +165,7 @@ void deleteNode(Node** headref, int data)
 void printBST(Node* root)
 {
  if (root == NULL)
- return;
+    return;
 
  printBST(root->left);
  cout << root->data << " ";
@@ -171,7 +176,7 @@ void printBST(Node* root)
 void printPreorder(Node* root)
 {
  if (root == NULL)
-return;
+    return;
 
  cout << root->data << " ";
  printPreorder(root->left);
@@ -181,7 +186,7 @@ return;
 void printPostorder(Node* root)
 {
  if (root == NULL)
-return;
+    return;
 
  printPostorder(root->left);
  printPostorder(root->right);
@@ -193,7 +198,7 @@ int height(Node* root)
 {
  if (root == NULL)
  {
- return -1;
+    return -1;
  }
 
 int leftHeight = height(root->left);
@@ -210,7 +215,7 @@ int maxHeight;
  maxHeight = rightHeight;
  }
 
- return 1 + maxHeight;
+    return 1 + maxHeight;
 
 }
 
@@ -219,7 +224,7 @@ bool isBalanced(Node* root)
 {
 if (root == NULL)
 {
- return true;
+    return true;
 }
 
 int leftHeight = height(root->left);
@@ -238,7 +243,7 @@ else
 
 if (difference > 1)
 {
- return false;
+    return false;
 }
 
 if (isBalanced(root->left) == false)
@@ -248,10 +253,10 @@ if (isBalanced(root->left) == false)
 
 if (isBalanced(root->right) == false)
 {
- return false;
+    return false;
 }
 
-return true;
+    return true;
 
 }
 
@@ -259,7 +264,7 @@ return true;
 int countNodes(Node* root)
 {
  if (root == NULL)
- return 0;
+    return 0;
 
  return 1 + countNodes(root->left) + countNodes(root->right);
 }
@@ -269,7 +274,7 @@ bool isWorstCase(Node* root)
 {
 if (root == NULL)
 {
- return false;
+    return false;
 }
 
 int totalNodes = countNodes(root);
@@ -277,11 +282,11 @@ int h = height(root);
 
 if (h == totalNodes - 1)
 {
- return true;
+    return true;
 }
 else
 {
- return false;
+    return false;
 }
 
 }

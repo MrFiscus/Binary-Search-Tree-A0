@@ -1,6 +1,9 @@
 #include "./bst.h"
+#include "customErrorClass.h"
 
 int main()
+{
+try
 {
  Node* head = NULL;
 
@@ -60,7 +63,7 @@ int main()
  cout << "Height of tree: " << h << endl;
 
  bool balanced = isBalanced(head);
- cout << "Is balanced? ";
+ cout << "Balanced: ";
  if (balanced == true)
  {
   cout << "Yes";
@@ -72,7 +75,7 @@ int main()
  cout << endl;
 
  bool worst = isWorstCase(head);
- cout << "Is worstcase? ";
+ cout << "Worstcase: ";
  if (worst == true)
  {
   cout << "Yes";
@@ -82,8 +85,12 @@ int main()
   cout << "No";
  }
  cout << endl;
+ }
 
+ catch (MyException& e)
+    {
+        cerr << e.what() << endl;
+    }
 
- 
  return 0;
 }
