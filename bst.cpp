@@ -70,6 +70,8 @@ static Node* findMin(Node* root)
     return root;
 }
 
+/* Delete */
+
 static Node* deleteRec(Node* root, int data)
 {
     if (root == NULL)
@@ -111,7 +113,6 @@ static Node* deleteRec(Node* root, int data)
     return root;
 }
 
-/* Delete wrapper */
 void deleteNode(Node** headref, int data)
 {
     *headref = deleteRec(*headref, data);
