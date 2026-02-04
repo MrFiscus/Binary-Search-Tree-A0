@@ -47,9 +47,21 @@ void insert(Node** headref, int data)
  }
 
  if (data > parent->data)
+ {
 parent->right = newNode(data);
+ }
  else
+ {
 parent->left = newNode(data);
+ }
+
+ cout << "Inserted value: " << data << endl;
+
+ if (isWorstCase(*headref) == true)
+    {
+        cout << "BST has reached worst-case configuration" << endl;
+    }
+
 }
 
 /* Search */

@@ -8,6 +8,10 @@ try
  Node* head = NULL;
 
  insert(&head, 4);
+ insert(&head,21);
+ insert(&head,22);
+ insert(&head,24);
+ insert(&head,26);
  insert(&head, 2);
  insert(&head, 6);
  insert(&head, 1);
