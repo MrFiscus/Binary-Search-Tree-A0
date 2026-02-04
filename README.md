@@ -1,5 +1,5 @@
-Assignment 0 – CSC 300 Review
-Spring 2026
+Assignment 0 – CSC 300
+( Spring 2026 )
 
 This code implements a Binary Search Tree (BST) in C++ and has the following features:-
 1. Includes basic operations like printBST, insert, delete and search
@@ -11,7 +11,7 @@ This code implements a Binary Search Tree (BST) in C++ and has the following fea
 The code also fullfills the following requirements:-
 1. Uses header files to organize the code
 2. Uses the provided exception handling to manage exceptions and edge cases
-3. Use make files to automate compiling and running of the program
+3. Uses make files to automate compiling and running of the program
 
 How to run the code:-
 mingw32-make
