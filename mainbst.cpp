@@ -7,18 +7,24 @@ try
 {
  Node* head = NULL;
 
- insert(&head, 4);
- insert(&head,21);
- insert(&head,22);
- insert(&head,24);
- insert(&head,26);
- insert(&head, 2);
- insert(&head, 6);
  insert(&head, 1);
+ insert(&head, 2);
  insert(&head, 3);
+ insert(&head, 4);
  insert(&head, 5);
+ insert(&head, 6);
  insert(&head, 7);
+ insert(&head, 8);
+ insert(&head, 9);
  insert(&head, 10);
+ insert(&head, 11);
+ insert(&head, 12);
+ insert(&head, 13);
+ insert(&head, 14);
+ insert(&head, 15);
+ insert(&head, 16);
+ insert(&head, 17);
+ insert(&head, 18);
 
  bool result;
 
