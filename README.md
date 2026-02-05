@@ -12,8 +12,3 @@ The code also fullfills the following requirements:-
 1. Uses header files to organize the code
 2. Uses the provided exception handling to manage exceptions and edge cases
 3. Uses make files to automate compiling and running of the program
-
-How to run the code:-
-mingw32-make
-mingw32-make run
-mingw32-make clean
